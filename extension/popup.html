@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { --fg: #111; --muted: #6b6b6b; --line: #e2e2e2; --hover: #f3f3f3; --bg: #fff; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #eee; --muted: #9a9a9a; --line: #333; --hover: #2a2a2a; --bg: #1f1f1f; }
+    }
+    body { width: 300px; margin: 0; padding: 12px 14px; font: 13px system-ui, sans-serif; color: var(--fg); background: var(--bg); }
+    h1 { font-size: 15px; margin: 0 0 6px; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 2px; }
+    section { border-top: 1px solid var(--line); }
+    section > header { display: flex; justify-content: space-between; align-items: center; }
+
+    .disclosure {
+      display: flex; align-items: center; gap: 6px; flex: 1; padding: 8px 4px; margin-left: -4px;
+      border: 0; border-radius: 6px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+    }
+    .disclosure:hover { background: var(--hover); }
+    .disclosure.site { font-size: 14px; font-weight: 600; }
+    .disclosure.more { color: var(--muted); padding: 6px 4px; }
+    .chevron { width: 12px; height: 12px; flex: none; transition: transform .15s; }
+    .disclosure[aria-expanded="true"] .chevron { transform: rotate(90deg); }
+
+    .body { padding: 0 0 8px 18px; }
+    .body[hidden], .more-body[hidden] { display: none; }
+    section.off .body { opacity: .45; pointer-events: none; }
+
+    label.toggle { display: flex; gap: 8px; align-items: flex-start; padding: 4px 0; cursor: pointer; }
+    label.toggle input { margin: 2px 0 0; }
+    .hint { display: block; color: var(--muted); font-size: 11.5px; margin-top: 1px; }
+    label.master { display: flex; gap: 6px; align-items: center; cursor: pointer; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>Untrap</h1>
+  <div id="sites"></div>
+  <script src="core.js"></script>
+  <script src="sites/youtube.js"></script>
+  <script src="sites/instagram.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Untrap",
+  "version": "0.2.0",
+  "description": "Take the bottomless, autoplaying parts out of YouTube, Instagram and friends.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Untrap",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["core.js", "sites/youtube.js", "content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["core.js", "sites/instagram.js", "content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["sites/instagram-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}
